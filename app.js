@@ -18,7 +18,7 @@ const authRoutes = require('./src/routes/auth');
 const User = require('./src/model/User');
 const Admin = require('./src/model/Admin');
 
-const MONGODB_URi = `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@cluster0.snioicq.mongodb.net/${process.env.MONGO_DEFAULT_DATABASE}`;
+const MONGODB_URi = `mongodb+srv://root2004:twbkXUEvLbDN2cql@cluster0.snioicq.mongodb.net/petfoods`;
 
 const app = express();
 const store = new MongoDBStore({
