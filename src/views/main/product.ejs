@@ -1,0 +1,285 @@
+<%- include('../includes/header.ejs') %>
+
+  <body id="top">
+
+    <!-- 
+      - #HEADER
+    -->
+
+    <%- include('../includes/head.ejs') %>
+
+
+
+      <main class="mt">
+        <article>
+          <section class="section product" id="shop" aria-label="product">
+            <div class="container max-w-7xl mx-auto my-40">
+              <div class="grid grid-cols-2">
+                <div class="product-card max-w-3xl">
+                  <div class="card-banner img-holder">
+                    <img src="<%= product.frontImg %>" width="360" height="360" loading="lazy" alt="Front image"
+                      class="img-cover default">
+                    <img src="<%= product.backImg %>" width="360" height="360" loading="lazy" alt="Back image"
+                      class="img-cover hover">
+                  </div>
+                </div>
+                <div class="my-auto p-5">
+                  <h1 class="font-bold text-5xl mb-5">
+                    <%= product.name %>
+                  </h1>
+                  <p class="text-gray-500 mb-4">
+                    <%= product.description %>
+                  </p>
+                  <div class="mb-4">
+                    <% if (product.rate===5) { %>
+                      <ul>
+                        <li class="inline-block">
+                          <ion-icon name="star" class="text-[#ED6335]" aria-hidden="true"></ion-icon>
+                        </li>
+                        <li class="inline-block">
+                          <ion-icon name="star" class="text-[#ED6335]" aria-hidden="true"></ion-icon>
+                        </li>
+                        <li class="inline-block">
+                          <ion-icon name="star" class="text-[#ED6335]" aria-hidden="true"></ion-icon>
+                        </li>
+                        <li class="inline-block">
+                          <ion-icon name="star" class="text-[#ED6335]" aria-hidden="true"></ion-icon>
+                        </li>
+                        <li class="inline-block">
+                          <ion-icon name="star" class="text-[#ED6335]" aria-hidden="true"></ion-icon>
+                        </li>
+                      </ul>
+                      <% } else if (product.rate===4) { %>
+                        <ul>
+                          <li class="inline-block">
+                            <ion-icon name="star" class="text-[#ED6335]" aria-hidden="true"></ion-icon>
+                          </li>
+                          <li class="inline-block">
+                            <ion-icon name="star" class="text-[#ED6335]" aria-hidden="true"></ion-icon>
+                          </li>
+                          <li class="inline-block">
+                            <ion-icon name="star" class="text-[#ED6335]" aria-hidden="true"></ion-icon>
+                          </li>
+                          <li class="inline-block">
+                            <ion-icon name="star" class="text-[#ED6335]" aria-hidden="true"></ion-icon>
+                          </li>
+                          <li class="inline-block">
+                            <ion-icon name="star" class="text-gray-500" aria-hidden="true"></ion-icon>
+                          </li>
+                        </ul>
+                        <% } else if (product.rate===3) { %>
+                          <ul>
+                            <li class="inline-block">
+                              <ion-icon name="star" class="text-[#ED6335]" aria-hidden="true"></ion-icon>
+                            </li>
+                            <li class="inline-block">
+                              <ion-icon name="star" class="text-[#ED6335]" aria-hidden="true"></ion-icon>
+                            </li>
+                            <li class="inline-block">
+                              <ion-icon name="star" class="text-[#ED6335]" aria-hidden="true"></ion-icon>
+                            </li>
+                            <li class="inline-block">
+                              <ion-icon name="star" class="text-gray-500" aria-hidden="true"></ion-icon>
+                            </li>
+                            <li class="inline-block">
+                              <ion-icon name="star" class="text-gray-500" aria-hidden="true"></ion-icon>
+                            </li>
+                          </ul>
+                          <% } else if (product.rate===2) { %>
+                            <ul>
+                              <li class="inline-block">
+                                <ion-icon name="star" class="text-[#ED6335]" aria-hidden="true"></ion-icon>
+                              </li>
+                              <li class="inline-block">
+                                <ion-icon name="star" class="text-[#ED6335]" aria-hidden="true"></ion-icon>
+                              </li>
+                              <li class="inline-block">
+                                <ion-icon name="star" class="text-gray-500" aria-hidden="true"></ion-icon>
+                              </li>
+                              <li class="inline-block">
+                                <ion-icon name="star" class="text-gray-500" aria-hidden="true"></ion-icon>
+                              </li>
+                              <li class="inline-block">
+                                <ion-icon name="star" class="text-gray-500" aria-hidden="true"></ion-icon>
+                              </li>
+                            </ul>
+                            <% } else if (product.rate===1) { %>
+                              <ul>
+                                <li class="inline-block">
+                                  <ion-icon name="star" class="text-[#ED6335]" aria-hidden="true"></ion-icon>
+                                </li>
+                                <li class="inline-block">
+                                  <ion-icon name="star" class="text-gray-500" aria-hidden="true"></ion-icon>
+                                </li>
+                                <li class="inline-block">
+                                  <ion-icon name="star" class="text-gray-500" aria-hidden="true"></ion-icon>
+                                </li>
+                                <li class="inline-block">
+                                  <ion-icon name="star" class="text-gray-500" aria-hidden="true"></ion-icon>
+                                </li>
+                                <li class="inline-block">
+                                  <ion-icon name="star" class="text-gray-500" aria-hidden="true"></ion-icon>
+                                </li>
+                              </ul>
+                              <% } else { %>
+                                <ul>
+                                  <li class="inline-block">
+                                    <ion-icon name="star" class="text-gray-500" aria-hidden="true"></ion-icon>
+                                  </li>
+                                  <li class="inline-block">
+                                    <ion-icon name="star" class="text-gray-500" aria-hidden="true"></ion-icon>
+                                  </li>
+                                  <li class="inline-block">
+                                    <ion-icon name="star" class="text-gray-500" aria-hidden="true"></ion-icon>
+                                  </li>
+                                  <li class="inline-block">
+                                    <ion-icon name="star" class="text-gray-500" aria-hidden="true"></ion-icon>
+                                  </li>
+                                  <li class="inline-block">
+                                    <ion-icon name="star" class="text-gray-500" aria-hidden="true"></ion-icon>
+                                  </li>
+                                </ul>
+                                <% } %>
+                  </div>
+                              <h2 class="text-[#ED6335] font-semibold text-4xl inline-block">$<%= product.price %></h2>
+                              <% if (!session.isLoggedIn) { %>
+                                <a href="/login" class="inline-block">
+                                  <button class="rounded bg-[#ED6335] text-white p-3 text-3xl ml-4"
+                                    aria-label="add to card" title="Add To Card">
+                                    <ion-icon name="bag-add-outline" aria-hidden="true"></ion-icon>
+                                  </button>
+                                </a>
+                                <% } else { %>
+                                  <%- include('../includes/add-to-card.ejs', {product: product, cart: cart})%>
+                                    <% } %>
+                </div>
+              </div>
+            </div>
+
+            <div class="px-40">
+              <h1 class="mb-12 font-bold text-5xl">Products</h1>
+              <ul class="grid-list">
+                <% if (products.length> 0) { %>
+                  <% for (let product of products) { %>
+                    <li>
+                      <a href="/product/<%= product._id %>">
+                        <div class="product-card">
+  
+                          <div class="card-banner img-holder" style="--width: 360; --height: 360;">
+                            <img src="<%= product.frontImg %>" width="360" height="360" loading="lazy" alt="Front image"
+                              class="img-cover default">
+                            <img src="<%= product.backImg %>" width="360" height="360" loading="lazy" alt="Back image"
+                              class="img-cover hover">
+                          </div>
+  
+                          <div class="card-content">
+  
+                            <div class="wrapper grey">
+                              <% if (product.rate===5 ) { %>
+                                <div class="rating-wrapper">
+                                  <ion-icon name="star" class="text-[#ED6335]" aria-hidden="true"></ion-icon>
+                                  <ion-icon name="star" class="text-[#ED6335]" aria-hidden="true"></ion-icon>
+                                  <ion-icon name="star" class="text-[#ED6335]" aria-hidden="true"></ion-icon>
+                                  <ion-icon name="star" class="text-[#ED6335]" aria-hidden="true"></ion-icon>
+                                  <ion-icon name="star" class="text-[#ED6335]" aria-hidden="true"></ion-icon>
+                                </div>
+                                <% } else if (product.rate===4) { %>
+                                  <ion-icon name="star" class="text-[#ED6335]" aria-hidden="true"></ion-icon>
+                                  <ion-icon name="star" class="text-[#ED6335]" aria-hidden="true"></ion-icon>
+                                  <ion-icon name="star" class="text-[#ED6335]" aria-hidden="true"></ion-icon>
+                                  <ion-icon name="star" class="text-[#ED6335]" aria-hidden="true"></ion-icon>
+                                  <ion-icon name="star" aria-hidden="true"></ion-icon>
+                                  <% } else if (product.rate===3) { %>
+                                    <ion-icon name="star" class="text-[#ED6335]" aria-hidden="true"></ion-icon>
+                                    <ion-icon name="star" class="text-[#ED6335]" aria-hidden="true"></ion-icon>
+                                    <ion-icon name="star" class="text-[#ED6335]" aria-hidden="true"></ion-icon>
+                                    <ion-icon name="star" aria-hidden="true"></ion-icon>
+                                    <ion-icon name="star" aria-hidden="true"></ion-icon>
+                                    <% } else if (product.rate===2) { %>
+                                      <ion-icon name="star" class="text-[#ED6335]" aria-hidden="true"></ion-icon>
+                                      <ion-icon name="star" class="text-[#ED6335]" aria-hidden="true"></ion-icon>
+                                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                                      <% } else if (product.rate===1) { %>
+                                        <ion-icon name="star" class="text-[#ED6335]" aria-hidden="true"></ion-icon>
+                                        <ion-icon name="star" aria-hidden="true"></ion-icon>
+                                        <ion-icon name="star" aria-hidden="true"></ion-icon>
+                                        <ion-icon name="star" aria-hidden="true"></ion-icon>
+                                        <ion-icon name="star" aria-hidden="true"></ion-icon>
+                                        <% } else { %>
+                                          <ion-icon name="star" aria-hidden="true"></ion-icon>
+                                          <ion-icon name="star" aria-hidden="true"></ion-icon>
+                                          <ion-icon name="star" aria-hidden="true"></ion-icon>
+                                          <ion-icon name="star" aria-hidden="true"></ion-icon>
+                                          <ion-icon name="star" aria-hidden="true"></ion-icon>
+                                          <% } %>
+                            </div>
+  
+                            <div class="mt-4">
+                              <h3 class="h3 inline-block">
+                                <a href="/product/<%= product._id %>" class="card-title">
+                                  <%= product.name %>
+                                </a>
+                              </h3>
+  
+                              <data class="card-price cursor-pointer inline-block ml-4" value="<%= product.price %>">$
+                                <%= product.price %></data>
+  
+                              <% if (!session.isLoggedIn) { %>
+                                <a href="/login" class="inline-block">
+                                  <button class="rounded bg-[#ED6335] text-white p-3 text-3xl ml-4"
+                                    aria-label="add to card" title="Add To Card">
+                                    <ion-icon name="bag-add-outline" aria-hidden="true"></ion-icon>
+                                  </button>
+                                </a>
+                                <% } else { %>
+                                  <%- include('../includes/add-to-card.ejs', {product: product, cart: null})%>
+                                    <% } %>
+                            </div>
+                          </div>
+  
+                        </div>
+                      </a>
+                    </li>
+                    <% } %>
+                      <% } %>
+  
+  
+  
+              </ul>
+            </div>
+          </section>
+        </article>
+      </main>
+
+
+      <%- include('../includes/footer.ejs') %>
+
+
+        <!-- 
+      - #BACK TO TOP
+    -->
+
+        <a href="#top" class="back-top-btn" aria-label="back to top" data-back-top-btn>
+          <ion-icon name="chevron-up" aria-hidden="true"></ion-icon>
+        </a>
+
+
+
+
+
+        <!-- 
+      - custom js link
+    -->
+        <script src="/js/script.js" defer></script>
+
+        <!-- 
+      - ionicon link
+    -->
+        <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+  </body>
+
+  <%- include('../includes/end.ejs') %>

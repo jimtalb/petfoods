@@ -1,0 +1,48 @@
+<%- include('./includes/header.ejs') %>
+
+    <%- include('./includes/navigation.ejs') %>
+
+        <div class="container max-w-full">
+            <div class="max-w-md w-full mx-auto bg-black text-white text-center">
+                <form action="/adminstrator/post-product" method="POST" class="p-4">
+                    <div class="mb-6">
+                        <select name="category" id="category" class="w-full text-center text-black p-1" required>
+                            <% if (categories.length> 0) { %>
+                                <% for (let category of categories) { %>
+                                    <option value="<%= category._id %>"><%= category.name %></option>
+                                    <% } %>
+                                        <% } %>
+                        </select>
+                    </div>
+                    <div class="mb-6">
+                        <input type="text" name="name" id="name" placeholder="Product name"
+                            class="w-full text-center text-black p-1" autocomplete="off" required>
+                    </div>
+                    <div class="mb-6">
+                        <input type="number" name="price" id="price" placeholder="Product price"
+                            class="w-full text-center text-black p-1" autocomplete="off" required>
+                    </div>
+                    <div class="mb-6">
+                        <textarea name="description" id="description" rows="4" class="w-full text-black p-1"
+                            placeholder="Product description"></textarea>
+                    </div>
+                    <div class="mb-6">
+                        <input type="number" name="rate" id="rate" placeholder="Product rate (1-5)"
+                            class="w-full text-center text-black p-1" autocomplete="off" required>
+                    </div>
+                    <div class="mb-6">
+                        <input type="text" name="frontImg" id="frontImg" placeholder="Front image"
+                            class="w-full text-center text-black p-1" autocomplete="off" required>
+                    </div>
+                    <div class="mb-6">
+                        <input type="text" name="backImg" id="backImg" placeholder="Back image"
+                            class="w-full text-center text-black p-1" autocomplete="off" required>
+                    </div>
+                    <button type="submit" class="bg-white text-black py-1 px-4">Add new product</button>
+                </form>
+            </div>
+        </div>
+
+
+
+        <%- include('./includes/end.ejs') %>

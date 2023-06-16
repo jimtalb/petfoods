@@ -1,0 +1,21 @@
+<%- include('./includes/header.ejs') %>
+
+    <%- include('./includes/navigation.ejs') %>
+
+    <div class="container max-w-full">
+        <div class="max-w-md w-full mx-auto bg-black text-white text-center">
+            <form action="/adminstrator/post-category" method="POST" class="p-4">
+                <div class="mb-6">
+                    <input type="text" name="name" id="name" placeholder="Category name" class="w-full text-center text-black p-1" autocomplete="off" required>
+                </div>
+                <div class="mb-6">
+                    <input type="text" name="image" id="image" placeholder="Image url" class="w-full text-center text-black p-1" autocomplete="off" required>
+                </div>
+                <button type="submit" class="bg-white text-black py-1 px-4">Add new category</button>
+            </form>
+        </div>
+    </div>
+
+
+
+    <%- include('./includes/end.ejs') %>

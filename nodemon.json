@@ -1,0 +1,7 @@
+{
+    "env": {
+        "MONGO_USER": "root2004",
+        "MONGO_PASSWORD": "twbkXUEvLbDN2cql",
+        "MONGO_DEFAULT_DATABASE": "petfoods"
+    }
+}

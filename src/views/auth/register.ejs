@@ -1,0 +1,78 @@
+<%- include('../includes/header.ejs') %>
+
+<body id="top">
+
+    <!-- 
+      - #HEADER
+    -->
+  
+    <header class="header <% if (path === '/secondary') { %> bg-[#292A2E] <% } %>" data-header>
+      <div class="container">
+        <div class="mx-auto w-full text-center">
+          <a href="/" class="logo text-white">Kitter</a>
+        </div>
+      </div>
+    </header>
+  
+  
+  
+  
+  
+    <main class="mt-36 pt-36 h-[75vh]">
+      <div class="max-w-xl w-full mx-auto px-6 py-8 bg-[#F4F4F4] rounded">
+        <form action="/signup" method="POST">
+            <% if (errorMessage) { %>
+                <div class="w-full text-center bg-red-300 py-1 rounded border-red-600 border-2"><%= errorMessage %></div>
+            <% } %>
+          <div class="mt-6 mb-6">
+            <label for="email">Your email address:</label>
+            <input type="email" name="email" placeholder="Email" id="email" class="w-full p-2 placeholder:text-black border-2 border-transparent focus:outline-none rounded focus:border-[#F9942A] focus:border-2 transition-all duration-75" autocomplete="off" required>
+          </div>
+          <div class="mb-6">
+            <label for="password">Your password:</label>
+            <input type="password" name="password" id="password" placeholder="Password" class="w-full p-2 placeholder:text-black border-2 border-transparent focus:outline-none rounded focus:border-[#F9942A] focus:border-2 transition-all duration-75" autocomplete="off" required>
+          </div>
+          <div class="mb-8">
+            <label for="confirmPassword">Confirm password:</label>
+            <input type="password" name="confirmPassword" id="confirmPassword" placeholder="Password" class="w-full p-2 placeholder:text-black border-2 border-transparent focus:outline-none rounded focus:border-[#F9942A] focus:border-2 transition-all duration-75" autocomplete="off" required>
+          </div>
+          <button type="submit" class="mx-auto bg-[#F9942A] px-10 py-2 text-white rounded">
+            Sign up
+          </button>
+        </form>
+        <div class="mt-8 text-center">
+          <p class="cursor-default inline-block">Sign in to your account - <a href="/login" class="text-[#F9942A] underline inline-block">Sign in</a></p>
+        </div>
+      </div>
+    </main>
+  
+
+    <%- include('../includes/footer.ejs') %>
+    
+  
+    <!-- 
+      - #BACK TO TOP
+    -->
+  
+    <a href="#top" class="back-top-btn" aria-label="back to top" data-back-top-btn>
+      <ion-icon name="chevron-up" aria-hidden="true"></ion-icon>
+    </a>
+  
+  
+  
+  
+  
+    <!-- 
+      - custom js link
+    -->
+    <script src="/js/script.js" defer></script>
+  
+    <!-- 
+      - ionicon link
+    -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  
+  </body>
+
+    <%- include('../includes/end.ejs') %>

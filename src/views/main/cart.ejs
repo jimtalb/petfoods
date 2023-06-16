@@ -1,0 +1,83 @@
+<%- include('../includes/header.ejs') %>
+
+  <body id="top">
+
+    <!-- 
+      - #HEADER
+    -->
+
+    <%- include('../includes/head.ejs') %>
+
+
+
+      <main class="mt-40">
+        <article class="pt-40 pb-40">
+          <div class="bg-[#292A2E] max-w-7xl w-full mx-auto rounded-lg p-6">
+            <% if (products.length> 0) { %>
+              <ul class="list-none text-white">
+                <% products.forEach(p=> { %>
+                  <li class="mt-8 first:mt-4 last:mb-8">
+                    <div class="flex">
+                      <div class="flex-none w-20 h-20">
+                        <img src="<%= p.productId.frontImg %>" class="max-w-[75px] max-h-[75px] w-full h-full rounded" alt="frontImg">
+                      </div>
+                      <div class="flex-initial w-full pl-8">
+                        <h1>
+                          <%= p.productId.name %>
+                        </h1>
+                        <h2>Quantity: <%= p.quantity %> - Price: $<%= p.productId.price * p.quantity %></h2>
+                      </div>
+                      <div class="flex-initial w-32">
+                        <form action="/cart-delete-item" method="POST">
+                          <input type="hidden" value="<%= p.productId._id %>" name="productId">
+                          <button class="bg-[#ED6335] text-white py-1 px-3 rounded mt-2" type="submit">Delete</button>
+                        </form>
+                      </div>
+                    </div>
+                  </li>
+                  <% }) %>
+              </ul>
+              <hr>
+              <div class="mx-auto max-w-full w-full">
+                <a class="btn mx-auto mt-6 mb-2 hover:bg-[#ED6335]" href="/checkout">
+                  <ion-icon name="cart-outline" class="inline-block text-2xl"></ion-icon> Order Now!
+                </a>
+              </div>
+  
+              <% } else { %>
+                <h1 class="text-white">No Products in Cart!</h1>
+                <% } %>
+          </div>
+        </article>
+      </main>
+
+
+      <%- include('../includes/footer.ejs') %>
+
+
+        <!-- 
+      - #BACK TO TOP
+    -->
+
+        <a href="#top" class="back-top-btn" aria-label="back to top" data-back-top-btn>
+          <ion-icon name="chevron-up" aria-hidden="true"></ion-icon>
+        </a>
+
+
+
+
+
+        <!-- 
+      - custom js link
+    -->
+        <script src="/js/script.js" defer></script>
+
+        <!-- 
+      - ionicon link
+    -->
+        <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+  </body>
+
+  <%- include('../includes/end.ejs') %>

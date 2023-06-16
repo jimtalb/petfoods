@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "pages/home";
+
+@import "layouts/navigation";
+@import "layouts/header";
+@import "layouts/footer";
+
+@import "components/button";
+
+@import "utils/variables";
+@import "utils/animations";
+@import "utils/utilities";

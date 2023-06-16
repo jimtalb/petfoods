@@ -1,0 +1,400 @@
+<%- include('../includes/header.ejs') %>
+
+  <body id="top">
+
+    <!-- 
+      - #HEADER
+    -->
+
+    <%- include('../includes/head.ejs') %>
+
+
+
+
+
+      <main>
+        <article>
+
+          <!-- 
+          - #HERO
+        -->
+
+          <section class="section hero has-bg-image" id="home" aria-label="home"
+            style="background-image: url('/images/hero-banner.jpg')">
+            <div class="container">
+
+              <h1 class="h1 hero-title">
+                <span class="span">High Quality</span> Pet Food
+              </h1>
+
+              <p class="hero-text">Sale up to 40% off today</p>
+
+              <a href="/shop" class="btn">Shop Now</a>
+
+            </div>
+          </section>
+
+
+
+
+
+          <!-- 
+          - #CATEGORY
+        -->
+
+          <section class="section category" aria-label="category">
+            <div class="container">
+
+              <h2 class="h2 section-title">
+                <span class="span">Top</span> categories
+              </h2>
+
+              <ul class="has-scrollbar">
+                <% if (categories.length> 0) { %>
+                  <% for (let category of categories) { %>
+                    <li class="scrollbar-item max-w-md">
+                      <a href="/category/<%= category._id %>" class="m-0 p-0">
+                        <div class="category-card">
+
+                          <figure class="card-banner img-holder" style="--width: 330; --height: 300;">
+                            <img src="<%= category.imageUrl %>" width="330" height="300" loading="lazy" alt="Cat Food"
+                              class="img-cover">
+                          </figure>
+
+                          <h3 class="h3">
+                            <a href="#" class="card-title">
+                              <%= category.name %>
+                            </a>
+                          </h3>
+
+                        </div>
+                      </a>
+                    </li>
+                    <% } %>
+                      <% } %>
+              </ul>
+
+            </div>
+          </section>
+
+
+
+
+          <!-- 
+          - #PRODUCT
+        -->
+
+          <section class="section product" id="shop" aria-label="product">
+            <div class="container">
+
+              <h2 class="h2 section-title">
+                <span class="span">Best</span> Seller
+              </h2>
+
+              <ul class="grid-list">
+                <% if (products.length> 0) { %>
+                  <% for (let product of products) { %>
+                    <li>
+                      <a href="/product/<%= product._id %>">
+                        <div class="product-card">
+
+                          <div class="card-banner img-holder" style="--width: 360; --height: 360;">
+                            <img src="<%= product.frontImg %>" width="360" height="360" loading="lazy" alt="Front image"
+                              class="img-cover default">
+                            <img src="<%= product.backImg %>" width="360" height="360" loading="lazy" alt="Back image"
+                              class="img-cover hover">
+                          </div>
+
+                          <div class="card-content">
+
+                            <div class="wrapper grey">
+                              <% if (product.rate===5 ) { %>
+                                <div class="rating-wrapper">
+                                  <ion-icon name="star" class="text-[#ED6335]" aria-hidden="true"></ion-icon>
+                                  <ion-icon name="star" class="text-[#ED6335]" aria-hidden="true"></ion-icon>
+                                  <ion-icon name="star" class="text-[#ED6335]" aria-hidden="true"></ion-icon>
+                                  <ion-icon name="star" class="text-[#ED6335]" aria-hidden="true"></ion-icon>
+                                  <ion-icon name="star" class="text-[#ED6335]" aria-hidden="true"></ion-icon>
+                                </div>
+                                <% } else if (product.rate===4) { %>
+                                  <ion-icon name="star" class="text-[#ED6335]" aria-hidden="true"></ion-icon>
+                                  <ion-icon name="star" class="text-[#ED6335]" aria-hidden="true"></ion-icon>
+                                  <ion-icon name="star" class="text-[#ED6335]" aria-hidden="true"></ion-icon>
+                                  <ion-icon name="star" class="text-[#ED6335]" aria-hidden="true"></ion-icon>
+                                  <ion-icon name="star" aria-hidden="true"></ion-icon>
+                                  <% } else if (product.rate===3) { %>
+                                    <ion-icon name="star" class="text-[#ED6335]" aria-hidden="true"></ion-icon>
+                                    <ion-icon name="star" class="text-[#ED6335]" aria-hidden="true"></ion-icon>
+                                    <ion-icon name="star" class="text-[#ED6335]" aria-hidden="true"></ion-icon>
+                                    <ion-icon name="star" aria-hidden="true"></ion-icon>
+                                    <ion-icon name="star" aria-hidden="true"></ion-icon>
+                                    <% } else if (product.rate===2) { %>
+                                      <ion-icon name="star" class="text-[#ED6335]" aria-hidden="true"></ion-icon>
+                                      <ion-icon name="star" class="text-[#ED6335]" aria-hidden="true"></ion-icon>
+                                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                                      <ion-icon name="star" aria-hidden="true"></ion-icon>
+                                      <% } else if (product.rate===1) { %>
+                                        <ion-icon name="star" class="text-[#ED6335]" aria-hidden="true"></ion-icon>
+                                        <ion-icon name="star" aria-hidden="true"></ion-icon>
+                                        <ion-icon name="star" aria-hidden="true"></ion-icon>
+                                        <ion-icon name="star" aria-hidden="true"></ion-icon>
+                                        <ion-icon name="star" aria-hidden="true"></ion-icon>
+                                        <% } else { %>
+                                          <ion-icon name="star" aria-hidden="true"></ion-icon>
+                                          <ion-icon name="star" aria-hidden="true"></ion-icon>
+                                          <ion-icon name="star" aria-hidden="true"></ion-icon>
+                                          <ion-icon name="star" aria-hidden="true"></ion-icon>
+                                          <ion-icon name="star" aria-hidden="true"></ion-icon>
+                                          <% } %>
+                            </div>
+
+                            <div class="mt-4">
+                              <h3 class="h3 inline-block">
+                                <a href="/product/<%= product._id %>" class="card-title">
+                                  <%= product.name %>
+                                </a>
+                              </h3>
+
+                              <data class="card-price cursor-pointer inline-block ml-4" value="<%= product.price %>">$
+                                <%= product.price %></data>
+
+                              <% if (!session.isLoggedIn) { %>
+                                <a href="/login" class="inline-block">
+                                  <button class="rounded bg-[#ED6335] text-white p-3 text-3xl ml-4"
+                                    aria-label="add to card" title="Add To Card">
+                                    <ion-icon name="bag-add-outline" aria-hidden="true"></ion-icon>
+                                  </button>
+                                </a>
+                                <% } else { %>
+                                  <%- include('../includes/add-to-card.ejs', {product: product, cart: null})%>
+                                    <% } %>
+                            </div>
+                          </div>
+
+                        </div>
+                      </a>
+                    </li>
+                    <% } %>
+                      <% } %>
+
+
+
+              </ul>
+
+            </div>
+          </section>
+
+
+
+
+
+          <!-- 
+          - #SERVICE
+        -->
+
+          <section class="section service" aria-label="service">
+            <div class="container">
+
+              <img src="/images/service-image.png" width="122" height="136" loading="lazy" alt="" class="img">
+
+              <h2 class="h2 section-title">
+                <span class="span">What your pet needs,</span> when they need it.
+              </h2>
+
+              <ul class="grid-list">
+
+                <li>
+                  <div class="service-card">
+
+                    <figure class="card-icon">
+                      <img src="/images/service-icon-1.png" width="70" height="70" loading="lazy" alt="service icon">
+                    </figure>
+
+                    <h3 class="h3 card-title">Free Same-Day Delivery</h3>
+
+                    <p class="card-text">
+                      Order by 2pm local time to get free delivery on orders $35+ today.
+                    </p>
+
+                  </div>
+                </li>
+
+                <li>
+                  <div class="service-card">
+
+                    <figure class="card-icon">
+                      <img src="/images/service-icon-2.png" width="70" height="70" loading="lazy" alt="service icon">
+                    </figure>
+
+                    <h3 class="h3 card-title">30 Day Return</h3>
+
+                    <p class="card-text">
+                      35% off your first order plus 5% off all future orders.
+                    </p>
+
+                  </div>
+                </li>
+
+                <li>
+                  <div class="service-card">
+
+                    <figure class="card-icon">
+                      <img src="/images/service-icon-3.png" width="70" height="70" loading="lazy" alt="service icon">
+                    </figure>
+
+                    <h3 class="h3 card-title">Security payment</h3>
+
+                    <p class="card-text">
+                      25% off your online order of $50+. Available at most locations.
+                    </p>
+
+                  </div>
+                </li>
+
+                <li>
+                  <div class="service-card">
+
+                    <figure class="card-icon">
+                      <img src="/images/service-icon-4.png" width="70" height="70" loading="lazy" alt="service icon">
+                    </figure>
+
+                    <h3 class="h3 card-title">24/7 Support</h3>
+
+                    <p class="card-text">
+                      Shop online to get orders over $35 shipped fast and free.
+                    </p>
+
+                  </div>
+                </li>
+
+              </ul>
+
+            </div>
+          </section>
+
+
+
+
+
+          <!-- 
+          - #CTA
+        -->
+
+          <section class="cta has-bg-image" aria-label="cta" style="background-image: url('/images/cta-bg.jpg')">
+            <div class="container">
+
+              <figure class="cta-banner">
+                <img src="/images/cta-banner.png" width="900" height="660" loading="lazy" alt="cat" class="w-100">
+              </figure>
+
+              <div class="cta-content">
+
+                <img src="/images/cta-icon.png" width="120" height="35" loading="lazy" alt="taste guarantee"
+                  class="img">
+
+                <h2 class="h2 section-title">Taste it, love it or we’ll replace it… Guaranteed!</h2>
+
+                <p class="section-text">
+                  At Petio, we believe your dog and cat will love their food so much that if they don’t … we’ll help you
+                  find a
+                  replacement. That’s our taste guarantee.
+                </p>
+
+                <a href="/shop" class="btn">Find out more</a>
+
+              </div>
+
+            </div>
+          </section>
+
+
+
+
+
+          <!-- 
+          - #BRAND
+        -->
+
+          <section class="section brand" aria-label="brand">
+            <div class="container">
+
+              <h2 class="h2 section-title">
+                <span class="span">Popular</span> Brands
+              </h2>
+
+              <ul class="has-scrollbar">
+
+                <li class="scrollbar-item">
+                  <div class="brand-card img-holder" style="--width: 150; --height: 150;">
+                    <img src="/images/brand-1.jpg" width="150" height="150" loading="lazy" alt="brand logo"
+                      class="img-cover">
+                  </div>
+                </li>
+
+                <li class="scrollbar-item">
+                  <div class="brand-card img-holder" style="--width: 150; --height: 150;">
+                    <img src="/images/brand-2.jpg" width="150" height="150" loading="lazy" alt="brand logo"
+                      class="img-cover">
+                  </div>
+                </li>
+
+                <li class="scrollbar-item">
+                  <div class="brand-card img-holder" style="--width: 150; --height: 150;">
+                    <img src="/images/brand-3.jpg" width="150" height="150" loading="lazy" alt="brand logo"
+                      class="img-cover">
+                  </div>
+                </li>
+
+                <li class="scrollbar-item">
+                  <div class="brand-card img-holder" style="--width: 150; --height: 150;">
+                    <img src="/images/brand-4.jpg" width="150" height="150" loading="lazy" alt="brand logo"
+                      class="img-cover">
+                  </div>
+                </li>
+
+                <li class="scrollbar-item">
+                  <div class="brand-card img-holder" style="--width: 150; --height: 150;">
+                    <img src="/images/brand-5.jpg" width="150" height="150" loading="lazy" alt="brand logo"
+                      class="img-cover">
+                  </div>
+                </li>
+
+              </ul>
+
+            </div>
+          </section>
+
+        </article>
+      </main>
+
+
+      <%- include('../includes/footer.ejs') %>
+
+
+        <!-- 
+      - #BACK TO TOP
+    -->
+
+        <a href="#top" class="back-top-btn" aria-label="back to top" data-back-top-btn>
+          <ion-icon name="chevron-up" aria-hidden="true"></ion-icon>
+        </a>
+
+
+
+
+
+        <!-- 
+      - custom js link
+    -->
+        <script src="/js/script.js" defer></script>
+
+        <!-- 
+      - ionicon link
+    -->
+        <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+  </body>
+
+  <%- include('../includes/end.ejs') %>
